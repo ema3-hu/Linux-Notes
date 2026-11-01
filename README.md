@@ -10,23 +10,12 @@ Gli appunti non sono un manuale: sono il resoconto dei miei esercizi, con i coma
 
 | Argomento | Contenuto |
 | --- | --- |
-| [User management](user-management/) | Utenti, gruppi, sudo/su, cartelle condivise, offboarding |
-| [Proccesses Services](processes-services/) | Demoni, processi, log, concatenazioni |
+| [User management](HTB/user-management/utenti-e-gruppi.md) | Utenti, gruppi, sudo/su, cartelle condivise, offboarding |
+| [Proccesses Services](HTB/processes-services/servizi-e-processi.md) | Demoni, processi, log, concatenazioni |
 
 ## Roadmap
 
-Argomenti che ho in programma, nell'ordine in cui li sto affrontando.
-
-- [x] Gestione di utenti e gruppi
-- [ ] Permessi avanzati, umask e ACL
-- [x] Processi e servizi (systemd)
-- [ ] Gestione dei pacchetti
-- [ ] Storage: partizioni, LVM, filesystem e mount
-- [ ] Networking di base
-- [ ] Firewall e SELinux
-- [ ] Scripting in bash
-- [ ] Scheduling (cron e timer)
-- [ ] Log e troubleshooting
+Al momento sto seguendo il path di HTB CJCA, oltre a quello della RHCSA per un dettaglio piú tecnico
 
 ## Metodo
 
