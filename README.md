@@ -18,7 +18,7 @@ Argomenti che ho in programma, nell'ordine in cui li sto affrontando.
 
 - [x] Gestione di utenti e gruppi
 - [ ] Permessi avanzati, umask e ACL
-- [ ] Processi e servizi (systemd)
+- [x] Processi e servizi (systemd)
 - [ ] Gestione dei pacchetti
 - [ ] Storage: partizioni, LVM, filesystem e mount
 - [ ] Networking di base
@@ -33,4 +33,4 @@ Guardare, agire, verificare. Ogni comando che modifica il sistema va seguito da 
 
 ## Nota su Hack The Box
 
-Qui trovi solo appunti miei e rielaborati. Niente soluzioni di macchine o challenge attive, niente flag e niente contenuti copiati dai moduli di HTB Academy.
+Qui trovi solo appunti miei e rielaborati. Niente soluzioni di macchine o challenge attive.
