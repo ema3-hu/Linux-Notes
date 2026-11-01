@@ -1,8 +1,4 @@
-# Servizi e processi Linux — Scheda di ripasso
-
-Nov 1, 2026 · @Emanuele G
-
-Comandi e ragionamenti del modulo, con le cose capite facendo gli esercizi.
+# Servizi e processi Linux
 
 ## Processi
 
@@ -71,7 +67,6 @@ journalctl -u ssh --no-pager | grep -E "Accepted|Failed"
 - `::1` è localhost in IPv6, l'equivalente di `127.0.0.1`.
 - La porta nel log è quella del **client**, scelta a caso per ogni connessione; la 22 è quella del server.
 - `unix_chkpwd` verifica la password contro `/etc/shadow`: esiste perché shadow è leggibile solo da root.
-- "PAM 2 more authentication failures" è un riepilogo: il primo fallimento più altri due.
 - "Connection closed **by** authenticating user ... \[preauth\]": a chiudere è stato il client, prima di completare l'autenticazione.
 
 ## Segnali
@@ -101,8 +96,7 @@ ps -ef --forest | grep sleep
 - Ctrl+D **non è un segnale**: è la fine dell'input (EOF). `cat` termina normalmente.
 - "Core dumped" = il processo ha salvato una copia della sua memoria per il debug.
 - `kill` da ema su un processo di alex → "Operation not permitted". Ogni processo ha un proprietario, come i file.
-- `sudo -u alex comando &`: il PID che dà la shell è quello di **sudo**, non del comando. sudo ha come utente reale chi l'ha lanciato, quindi posso ucciderlo; il figlio, nato come alex, no.
-- Ucciso sudo, il figlio è morto lo stesso: il suo terminale virtuale si è chiuso e ha ricevuto SIGHUP.
+- `sudo -u alex comando &`: il PID che dà la shell è quello di **sudo**, non del comando. sudo ha come utente reale chi l'ha lanciato, quindi posso ucciderlo; il figlio, nato come alex, no
 - `nohup comando &` ignora SIGHUP; `disown` stacca un job dalla shell. I servizi non hanno questo problema perché li avvia systemd, non un terminale.
 
 ## Job control
@@ -115,13 +109,12 @@ Ctrl+Z             # sospende il job in primo piano
 jobs               # elenca i job
 bg                 # riprende il job in background
 fg 1               # riporta il job 1 in primo piano
-comando > out.txt &   # background davvero silenzioso
+comando > out.txt &   # background davvero background
 ```
 
 - **Primo piano**: la shell aspetta; la tastiera e Ctrl+C vanno al job.
 - **Background**: la shell non aspetta; posso lanciare altri comandi, Ctrl+C non tocca il job.
 - Un job in background può **scrivere** sul terminale ma non **leggere**: se ci prova riceve SIGTTIN e si sospende.
-- Per questo `sudo comando &` si blocca chiedendo la password, e quello che digito finisce alla bash, visibile e potenzialmente nella history. Soluzione: `sudo -v` prima.
 
 ## Concatenare comandi
 
@@ -144,11 +137,7 @@ Tre affermazioni del materiale non reggono alla prova; gli errori fatti hanno in
 
 | Cosa | Cosa succede davvero | Lezione |
 | --- | --- | --- |
-| Materiale: `kill 9 <PID>` | Senza trattino, 9 è un PID: manda SIGTERM al processo 9 e a quello voluto | `kill -9` o `kill -KILL` |
-| Materiale: Ctrl+D = SIGQUIT | Ctrl+D è EOF, non un segnale; SIGQUIT è Ctrl+\\ | Provare prima di fidarsi |
-| Materiale: la pipe dipende dal successo del comando prima | I comandi partono in parallelo, il successivo gira comunque | Lo stato è dell'ultimo comando |
 | Mio: `sudo -u alex sleep 1000 &` | sudo si sospende chiedendo la password, quella che digito va alla bash | `sudo -v` prima, controllare la history |
 | Mio: `kill` sul PID dato dalla shell | Ho ucciso sudo, non lo sleep di alex | Verificare il PID giusto con `ps --forest` |
 | Mio: aspettarmi che `bg` zittisse il job | Il job continua a scrivere sul terminale | Background = tastiera libera, non silenzio |
 
-Abitudine confermata: prevedere, provare, confrontare. Il materiale è un punto di partenza, non la verità.
