@@ -11,6 +11,7 @@ Gli appunti non sono un manuale: sono il resoconto dei miei esercizi, con i coma
 | Argomento | Contenuto |
 | --- | --- |
 | [User management](user-management/) | Utenti, gruppi, sudo/su, cartelle condivise, offboarding |
+| [Proccesses Services](processes-services/) | Demoni, processi, log, concatenazioni |
 
 ## Roadmap
 
