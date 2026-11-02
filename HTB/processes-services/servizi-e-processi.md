@@ -131,13 +131,12 @@ comando > out.txt &   # background davvero background
 - I comandi di una pipe partono **in parallelo**. `echo` non aspetta niente e può stampare prima dell'errore; `wc -l` deve aspettare la fine dell'input, quindi stampa per forza dopo.
 - Lo stato di uscita di una pipe è quello dell'**ultimo** comando: `ls NO | echo ciao; echo $?` dà 0. Un `&&` dopo una pipe guarda solo l'ultimo.
 
-## Imprecisioni del materiale ed errori fatti
+##  Errori fatti
 
-Tre affermazioni del materiale non reggono alla prova; gli errori fatti hanno insegnato più dei comandi giusti.
 
 | Cosa | Cosa succede davvero | Lezione |
 | --- | --- | --- |
-| Mio: `sudo -u alex sleep 1000 &` | sudo si sospende chiedendo la password, quella che digito va alla bash | `sudo -v` prima, controllare la history |
-| Mio: `kill` sul PID dato dalla shell | Ho ucciso sudo, non lo sleep di alex | Verificare il PID giusto con `ps --forest` |
-| Mio: aspettarmi che `bg` zittisse il job | Il job continua a scrivere sul terminale | Background = tastiera libera, non silenzio |
+| `sudo -u alex sleep 1000 &` | sudo si sospende chiedendo la password, quella che digito va alla bash | `sudo -v` prima, controllare la history |
+| `kill` sul PID dato dalla shell | Ho ucciso sudo, non lo sleep di alex | Verificare il PID giusto con `ps --forest` |
+| aspettarmi che `bg` zittisse il job | Il job continua a scrivere sul terminale | Background = tastiera libera, non silenzio |
 
