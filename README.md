@@ -13,9 +13,16 @@ Gli appunti non sono un manuale: sono il resoconto dei miei esercizi, con i coma
 | [User management](HTB/user-management/utenti-e-gruppi.md) | Utenti, gruppi, sudo/su, cartelle condivise, offboarding |
 | [Proccesses Services](HTB/processes-services/servizi-e-processi.md) | Demoni, processi, log, concatenazioni |
 
+
 ## Roadmap
 
-Al momento sto seguendo il path di HTB CJCA, oltre a quello della RHCSA per un dettaglio piú tecnico
+Seguo il percorso HTB CJCA e, per un maggiore dettaglio tecnico da sistemista, gli obiettivi RHCSA.
+
+**HTB**
+
+- [x] Gestione Utenti/Permessi
+- [x] Processi e Servizi
+- [x] 
 
 ## Metodo
 
